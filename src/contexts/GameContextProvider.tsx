@@ -67,8 +67,8 @@ export function GameContextProvider({children}: GameContextChildren) {
     numberToGuess,
     status,
     lastGuess,
-    reset,
-    checkGuess, 
+    reset: reset,
+    checkGuess: checkGuess, 
   }
 
   return (

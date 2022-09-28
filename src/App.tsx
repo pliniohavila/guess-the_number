@@ -1,18 +1,18 @@
-
+import { useContext } from 'react'
 import './App.css'
 import { GameConfig } from './components/ConfigGame'
 import { Play } from './components/Play'
-import { GameContextProvider } from './contexts/GameContextProvider'
+import { GameContext } from './contexts/GameContextProvider'
 
 function App() { 
 
+  const { reset } = useContext(GameContext)
+
   return (
-    <GameContextProvider >
-      <div className="App">
-        <Play />
-        <GameConfig />
-      </div>
-    </GameContextProvider>
+    <div className="App">
+      <Play />
+      <GameConfig reset={reset}/>
+    </div>
   )
 }
 

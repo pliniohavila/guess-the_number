@@ -1,11 +1,12 @@
-import { useContext, useState } from "react"
-import { GameContext } from "../contexts/GameContextProvider"
+import { useState } from "react"
 
-export function GameConfig() {
+interface GameConfigProps {
+  reset: (lower: number, upper: number) => void
+}
+
+export function GameConfig({reset}:  GameConfigProps) {
   const [min, setMin] = useState(0)
   const [max, setMax] = useState(10) 
-
-  const {reset} = useContext(GameContext)
 
   function handleReset(event: any) {
     event.preventDefault()
@@ -21,6 +22,7 @@ export function GameConfig() {
         <input 
           type="number" 
           name="lower" 
+          aria-label="lower"
           value={min} 
           max={max}
           onChange={(state) => setMin(Number(state.target.value))}
@@ -30,6 +32,7 @@ export function GameConfig() {
         <input 
           type="number" 
           name="upper" 
+          aria-label="upper"
           value={max}
           min={min}
           onChange={(state) => setMax(Number(state.target.value))}
