@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for ConfigGame.tsx</title>
+    <title>Code coverage report for components/Play.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> ConfigGame.tsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> Play.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>42/45</span>
+                <span class='fraction'>30/32</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>42/45</span>
+                <span class='fraction'>30/32</span>
             </div>
         
             
@@ -94,23 +94,7 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -118,7 +102,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -141,59 +125,36 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react"
+<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import { useContext, useState } from "react"
+import { GameContext } from "../contexts/GameContextProvider"
 &nbsp;
-interface GameConfigProps {
-  reset: (lower: number, upper: number) =&gt; void
-}
+export function Play() {
+  const [inputGuess, setInputGuess] = useState(0)
+  const { lower, upper, status, lastGuess, checkGuess } = useContext(GameContext)
 &nbsp;
-export function GameConfig({reset}:  GameConfigProps) {
-  const [min, setMin] = useState(0)
-  const [max, setMax] = useState(10) 
-&nbsp;
-<span class="fstat-no" title="function not covered" >  function handleReset(event: any) {</span>
+  
+<span class="fstat-no" title="function not covered" >  function handleGuess(event: any) {</span>
 <span class="cstat-no" title="statement not covered" >    event.preventDefault()</span>
-<span class="cstat-no" title="statement not covered" >    reset(min, max)</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-&nbsp;
+<span class="cstat-no" title="statement not covered" >    checkGuess(inputGuess) </span>
+  } 
 &nbsp;
   return (
-    &lt;div&gt;
-      &lt;h1&gt;Game Config&lt;/h1&gt;
-      &lt;form onClick={handleReset}&gt;
-        &lt;label htmlFor="lower"&gt;Lower bound:&lt;/label&gt; 
+    &lt;&gt;
+      &lt;h1&gt;Play&lt;/h1&gt;
+      &lt;p&gt;Guess the number between {lower} and {upper}&lt;/p&gt;
+      &lt;p&gt;Last guess: {lastGuess}&lt;/p&gt;
+      &lt;p&gt;{status}&lt;/p&gt;
+      
+      &lt;form&gt;
+        &lt;label htmlFor="guess"&gt;Guess: &lt;/label&gt;
         &lt;input 
           type="number" 
-          name="lower" 
-          aria-label="lower"
-          value={min} 
-          max={max}
-          onChange={<span class="fstat-no" title="function not covered" >(state) =&gt; setMin(Number(state.target.value))}</span>
+          aria-label="guess" 
+          onChange={<span class="fstat-no" title="function not covered" >(state) =&gt; setInputGuess(Number(state.target.value))}</span>
         /&gt;
-        &lt;br /&gt;
-        &lt;label htmlFor="upper"&gt;Upper  bound:&lt;/label&gt; 
-        &lt;input 
-          type="number" 
-          name="upper" 
-          aria-label="upper"
-          value={max}
-          min={min}
-          onChange={<span class="fstat-no" title="function not covered" >(state) =&gt; setMax(Number(state.target.value))}</span>
-        /&gt;
-        &lt;br /&gt;
-        &lt;button type="submit"&gt;Reset&lt;/button&gt;
+        &lt;button onClick={handleGuess}&gt;Make guess&lt;/button&gt;
       &lt;/form&gt;
-    &lt;/div&gt;
+    &lt;/&gt;
   )
 }</pre></td></tr></table></pre>
 
@@ -202,16 +163,16 @@ export function GameConfig({reset}:  GameConfigProps) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-28T01:07:03.655Z
+                at 2022-09-28T01:16:39.646Z
             </div>
-        <script src="prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="sorter.js"></script>
-        <script src="block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     

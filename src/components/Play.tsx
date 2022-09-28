@@ -22,7 +22,7 @@ export function Play() {
         <label htmlFor="guess">Guess: </label>
         <input 
           type="number" 
-          name="guess" 
+          aria-label="guess" 
           onChange={(state) => setInputGuess(Number(state.target.value))}
         />
         <button onClick={handleGuess}>Make guess</button>
